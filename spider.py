@@ -58,16 +58,13 @@ def get_tencent_data():
     return history, details
 
 
-
-
-
+# 数据库连接
 def get_conn():
     # 建立连接
-    conn = pymysql.connect(host="###", user="###", password="###", db="cov", charset="utf8")
+    conn = pymysql.connect(host="127.0.0.1", user="root", password="123456", db="cov", charset="utf8")
     # c创建游标
     cursor = conn.cursor()
     return conn, cursor
-
 
 def close_conn(conn, cursor):
     if cursor:
@@ -143,7 +140,6 @@ def update_history():
         traceback.print_exc()
     finally:
         close_conn(conn,cursor)
-
 
 #爬取百度热搜数据
 def get_baidu_hot():
